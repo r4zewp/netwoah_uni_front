@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 /// fonts
-String primaryFontFamily = "OpenSans";
+String primaryFontFamily = "Ubuntu";
 
 /// colors
 Color primaryColor = Colors.white;
@@ -18,7 +18,7 @@ TextStyle onboardSubtitleTextStyle = TextStyle(
   fontSize: 18,
   color: Colors.black,
   fontFamily: primaryFontFamily,
-  fontWeight: FontWeight.w600,
+  fontWeight: FontWeight.w400,
 );
 
 OutlineInputBorder telegramCodeSubmitBorder = const OutlineInputBorder(
