@@ -15,7 +15,7 @@ TextStyle onboardTitleTextStyle = TextStyle(
 );
 
 TextStyle onboardSubtitleTextStyle = TextStyle(
-  fontSize: 18,
+  fontSize: 19,
   color: Colors.black,
   fontFamily: primaryFontFamily,
   fontWeight: FontWeight.w400,

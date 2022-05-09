@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:nazvaniepotom/Onboard/OnboardWidgets/Widgets/HorizontalProgressBarDottedItem.dart';
-import '../../env/env.dart';
+import 'package:nazvaniepotom/Onboard/OnboardWidgets/Widgets/OnboardNextButton.dart';
+import 'package:nazvaniepotom/env/env.dart';
 
-class OnboardingTwo extends StatelessWidget {
-  const OnboardingTwo({Key? key}) : super(key: key);
+class OnboardingMain extends StatelessWidget {
+  const OnboardingMain({Key? key, required this.pageController})
+      : super(key: key);
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
     Size _screenSize = MediaQuery.of(context).size;
     double defaultSpacing = _screenSize.height * 0.078;
+
     return Scaffold(
       backgroundColor: primaryColor,
       resizeToAvoidBottomInset: false,
@@ -20,7 +23,7 @@ class OnboardingTwo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "Мы за безопасность",
+                "Добро пожаловать!",
                 textAlign: TextAlign.center,
                 style: onboardTitleTextStyle,
               ),
@@ -28,39 +31,25 @@ class OnboardingTwo extends StatelessWidget {
               Container(
                 width: _screenSize.width * 0.533,
                 height: _screenSize.height * 0.246,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.fitHeight,
-                    image: AssetImage("assets/img/onboard_two.png"),
-                  ),
+                decoration: BoxDecoration(
+                  color: Colors.amber[100],
                 ),
               ),
               SizedBox(height: defaultSpacing),
               SizedBox(
                 height: _screenSize.height / 10,
                 child: Text(
-                  "Не беспокойся за безопасность платежей - она является нашей ответственностью",
+                  "Мы - приложение, позволяющее получить академическую помощь в кратчайшие сроки",
                   textAlign: TextAlign.center,
                   style: onboardSubtitleTextStyle,
                 ),
               ),
               SizedBox(height: defaultSpacing),
               SizedBox(
-                width: _screenSize.width * 0.149,
+                width: _screenSize.width * 0.4,
                 height: _screenSize.height * 0.061,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    HorizontalProgressBarDottedItem(
-                      isActive: false,
-                    ),
-                    HorizontalProgressBarDottedItem(
-                      isActive: true,
-                    ),
-                    HorizontalProgressBarDottedItem(
-                      isActive: false,
-                    ),
-                  ],
+                child: NextButton(
+                  pageController: pageController,
                 ),
               ),
             ],

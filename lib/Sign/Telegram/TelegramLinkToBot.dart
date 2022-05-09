@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:nazvaniepotom/Sign/Telegram/TelegramWidgets/GoToBotButton.dart';
 import 'package:nazvaniepotom/classes/User.dart';
 import 'package:nazvaniepotom/env/env.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class TelegramBotLink extends StatefulWidget {
   const TelegramBotLink({Key? key}) : super(key: key);
@@ -15,6 +17,8 @@ class _TelegramBotLinkState extends State<TelegramBotLink> {
   Widget build(BuildContext context) {
     /// creating user instance
     User newUser = User(null, null, null);
+
+    String _botUrl = "https://t.me/rekruti_5_bot";
 
     Size _screenSize = MediaQuery.of(context).size;
     return Scaffold(
@@ -57,10 +61,17 @@ class _TelegramBotLinkState extends State<TelegramBotLink> {
               SizedBox(
                 height: _screenSize.height * 0.060,
               ),
-              GoToBotButton(onClick: () {
-                Navigator.pushNamed(context, "/submitTelegramCode",
-                    arguments: newUser);
-              }),
+              GoToBotButton(
+                onClick: () async {
+                  try {
+                    launchUrl(Uri.parse(_botUrl));
+                  } catch (e) {
+                    print(e);
+                  }
+                  // Navigator.pushNamed(context, "/submitTelegramCode",
+                  //     arguments: newUser);
+                },
+              ),
             ],
           ),
         ),

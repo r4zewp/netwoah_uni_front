@@ -19,7 +19,6 @@ doc/api/
 *.js_
 *.js.deps
 *.js.map
-<<<<<<< HEAD
 
 # Miscellaneous
 *.class
@@ -140,5 +139,3 @@ app.*.symbols
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 !/dev/ci/**/Gemfile.lock
-=======
->>>>>>> 206617b6e488895fabda628a4c326c6658fbac9a

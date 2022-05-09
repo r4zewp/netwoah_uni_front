@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:nazvaniepotom/Onboard/OnboardMain.dart';
 import 'package:nazvaniepotom/Sign/Telegram/TelegramLinkToBot.dart';
 
 import 'Sign/Sign.dart';
 import 'Sign/Telegram/SubmitTelegram.dart';
 
-void main() => runApp(Home());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle.light,
+  );
+  SystemChrome.setPreferredOrientations(
+          [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
+      .then((_) => runApp(const Home()));
+}
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
